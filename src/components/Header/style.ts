@@ -27,7 +27,7 @@ export const Content = styled.div`
 export const Cadastrar = styled.button`
     background:var(--red);
     color:var(--white);
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     border: none;
     border-radius: 8px;
     font-size: 1.5rem;

@@ -13,7 +13,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/" exact={true} component={Login} />
       <Route path="/home" exact={true} component={Principal} />
-      <Route path="/new" exact={true} component={NovoCadastro} />
+      <Route path="/new-user" exact={true} component={NovoCadastro} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')

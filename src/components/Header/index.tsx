@@ -1,6 +1,7 @@
 import {Container, Content, Cadastrar, TurnOFF} from './style';
 import image from '../../assets/Logo.png';
 import Sair from '../../assets/Sair.svg';
+import { Link } from 'react-router-dom';
 
 export function Header() {
     return (
@@ -11,7 +12,10 @@ export function Header() {
                 <h1>Olá,João</h1>
             </div>
             <div>
+              <Link to={`/new`}>
                 <Cadastrar>Cadastrar novo caso</Cadastrar>
+              </Link>
+                
                 <TurnOFF><img src={Sair} alt="" /></TurnOFF>
             </div>
                             
