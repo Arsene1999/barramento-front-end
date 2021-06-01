@@ -1,8 +1,14 @@
+import React from "react";
+import { Container, Content } from "./style";
+
 export function Body() {
     return (
-      <div className="App">
-        <h1>OLA MUNDO</h1>
-      </div>
+      <Container>
+        <Content>
+          <h1>Casos cadastrados</h1>
+        </Content>
+      </Container>
+     
     );
   }
   
