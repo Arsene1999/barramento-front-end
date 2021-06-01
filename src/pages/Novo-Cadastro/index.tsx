@@ -1,4 +1,6 @@
 import {Container, Content, Inputs, Botao} from './style';
+
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo (1).png';
 import Voltar from '../../assets/Voltar.svg';
 
@@ -12,11 +14,13 @@ export function NovoCadastro(){
                         <img src={Logo} alt="" />
                         <h1>Cadastro</h1>
                         <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
+                        <Link  to={`/home`}>
+                            <Botao> 
+                                <img src={Voltar} alt="" /> 
+                                <h2>Voltar para o logon</h2>
+                            </Botao>
+                        </Link>
                         
-                        <Botao> 
-                            <img src={Voltar} alt="" /> 
-                            <h2>Voltar para o logon</h2>
-                        </Botao>
                     </div>
                     
                     <Inputs>

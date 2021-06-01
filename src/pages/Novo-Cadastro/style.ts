@@ -32,6 +32,10 @@ export const Content = styled.div`
             color:var(--textosSec);
             padding: 1rem 0 4rem 0;
         }
+
+        a{
+            text-decoration: none;
+        }
     }
 `
 export const Botao = styled.button`
