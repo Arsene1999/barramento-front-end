@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         --background: #F0F0F5;
         --red: #E02041;
-        --white: #F0F0F5;
+        --white: #FFFFFF;
         --lInput: #DCDCE6;
         --textos: #737380;
         --textosSec: #A8A8B3;
