@@ -12,7 +12,7 @@ export function Header() {
                 <h1>Olá,João</h1>
             </div>
             <div>
-              <Link to={`/new`}>
+              <Link to={`/new-cad`}>
                 <Cadastrar>Cadastrar novo caso</Cadastrar>
               </Link>
                 
