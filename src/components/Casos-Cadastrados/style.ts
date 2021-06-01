@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-    background:var(--background);
-    height:100vh;
-
+    
 `
 
 export const Content = styled.div`
@@ -12,14 +10,10 @@ export const Content = styled.div`
     margin: 0 auto;
     padding: 1.5rem 1rem; 
     
-    
-
     h1{ 
         padding-bottom: 1rem;
         display:block;
         font-size:2.5rem;
-        
-
     }
 `
 
@@ -49,6 +43,12 @@ export const Cards = styled.div`
         button{ 
             background: transparent;
             border:none;
+            
+            transition: filter 0.2s;
+            &:hover{
+                filter: brightness(0.7);
+            }
+        
         }
         
     }
