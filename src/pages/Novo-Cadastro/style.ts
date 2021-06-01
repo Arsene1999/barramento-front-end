@@ -18,8 +18,35 @@ export const Content = styled.div`
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 3rem;
+
+        h1{
+            font-size: 2rem;
+            font-weight:600;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        p{
+            font-size: 1.5rem;
+            font-weight:400;
+            color:var(--textosSec);
+            padding: 1rem 0 4rem 0;
+        }
     }
 `
+export const Botao = styled.button`
+    background: transparent;
+    border:none;
+    display: flex;
+    font-size: 1rem;
+
+    transition:color 0.2s;
+
+    &:hover {
+        color: var(--red);
+    }
+`
+
 
 export const Inputs = styled.div`
     
@@ -35,6 +62,12 @@ export const Inputs = styled.div`
             font-size:1rem;
             font-weight: 400;
         }
+
+        transition:filter 0.2s;
+
+        &:hover {
+            filter: brightness(0.9);
+        }
     }
     
 
@@ -43,12 +76,6 @@ export const Inputs = styled.div`
         color: var(--white);
         font-size: 1rem;
         font-weight: 600;
-
-        transition:filter 0.2s;
-
-        &:hover {
-            filter: brightness(0.9);
-        }
 
         h3{
             font-size: 1.5rem;
@@ -60,3 +87,4 @@ export const Inputs = styled.div`
         display: flex;
     }
 `
+
