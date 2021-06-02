@@ -16,7 +16,9 @@ export function Login() {
 
             <Inputs>
               <input placeholder="Sua ID" type="String"></input>
-              <button>Entrar</button>
+              <Link to={`/home`}>
+                <button>Entrar</button>
+              </Link>
             </Inputs>
             <Link to={`/new-user`}>
               <img src={Voltar} alt="" />            
