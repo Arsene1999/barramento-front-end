@@ -15,7 +15,8 @@ export function Login() {
             <h1>Faça seu logon</h1>
 
             <Inputs>
-              <input placeholder="Sua ID" type="String"></input>
+              <input placeholder="Login" type="String"></input>
+              <input placeholder="Senha" type="String"></input>
               <Link to={`/home`}>
                 <button>Entrar</button>
               </Link>
@@ -24,7 +25,7 @@ export function Login() {
               <img src={Voltar} alt="" />            
             </Link>
           </div>
-          <img src={Pessoas} alt="" />
+          
         </form>
       </Content>
     </Container>

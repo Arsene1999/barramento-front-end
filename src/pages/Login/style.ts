@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-    max-width: 1120px;
+    max-width: 450px;
     margin: 0 auto;
     padding: 1.5rem 1rem; 
     height:100vh;
@@ -17,9 +17,10 @@ export const Content = styled.div`
 
 
     form{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 3rem;
+        //display: grid;
+        //grid-template-columns: 1fr 1fr;
+        //grid-column-gap: 3rem;
+        width: 100%;
 
         h1{
             font-size: 2rem;
