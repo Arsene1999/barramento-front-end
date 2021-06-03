@@ -10,38 +10,75 @@ export function LogServicos(){
                    <h1>
                        Log de serviços
                    </h1>
-                    <Log>
-                        <li>
-                            <h3>Hora:</h3>
-                            <h3>De:</h3>
-                            <h3>Para:</h3>
-                        </li>
-                        <li>
-                            <h3>Hora:</h3>
-                            <h3>De:</h3>
-                            <h3>Para:</h3>
-                        </li>
-                        <li>
-                            <h3>Hora:</h3>
-                            <h3>De:</h3>
-                            <h3>Para:</h3>
-                        </li>
-                        <li>
-                            <h3>Hora:</h3>
-                            <h3>De:</h3>
-                            <h3>Para:</h3>
-                        </li>
-                        <li>
-                            <h3>Hora:</h3>
-                            <h3>De:</h3>
-                            <h3>Para:</h3>
-                        </li>
-                        <li>
-                            <h3>Hora:</h3>
-                            <h3>De:</h3>
-                            <h3>Para:</h3>
-                        </li>
-                    </Log>
+                <Log>
+                        
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Hora</th>
+                                <th>Emissor</th>
+                                <th>Receptor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <td>18/07/199</td>
+                                <td >
+                                    00:00:00    
+                                </td>
+                                <td>
+                                    João
+                                </td>
+                                <td>
+                                   Andre     
+                    
+                                </td>
+                                </tr>
+                            <tr >
+                                <td>18/07/199</td>
+                                <td >
+                                    00:00:00    
+                                </td>
+                                <td>
+                                    João
+                                </td>
+                                <td>
+                                   Andre     
+                    
+                                </td>
+                                </tr>
+                            <tr >
+                                <td>18/07/199</td>
+                                <td >
+                                    00:00:00    
+                                </td>
+                                <td>
+                                    João
+                                </td>
+                                <td>
+                                   Andre     
+                    
+                                </td>
+                                </tr>
+                            <tr >
+                                <td>18/07/199</td>
+                                <td >
+                                    00:00:00    
+                                </td>
+                                <td>
+                                    João
+                                </td>
+                                <td>
+                                   Andre     
+                    
+                                </td>
+                                </tr>
+                                
+                        </tbody>
+                    </table>
+       
+                </Log>
                </Content>
            </Container>
         </>

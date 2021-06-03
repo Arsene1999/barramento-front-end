@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
         --textosSec: #A8A8B3;
         --titulos: #13131A;
         --titulosSec: #41414D;
+        --text-body: #969CB3;
+        --shape: #FFFFFF;
     }
 
     *{
