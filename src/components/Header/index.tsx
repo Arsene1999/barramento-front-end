@@ -12,10 +12,16 @@ export function Header() {
                 <h1>Olá,João</h1>
             </div>
             <div>
-              <Link to={`/new-cad`}>
-                <Cadastrar>Cadastrar novo caso</Cadastrar>
+              <Link to={`/home`}>
+                <Cadastrar style={{marginRight:"1rem"}}>Serviços Cadastrados</Cadastrar>
               </Link>
-                
+              <Link to={`/log`}>
+                <Cadastrar style={{marginRight:"1rem"}}>Log de serviços</Cadastrar>
+              </Link>
+              <Link to={`/new-cad`}>
+                <Cadastrar >Novo serviço</Cadastrar>
+              </Link>
+              
                 <TurnOFF><img src={Sair} alt="" /></TurnOFF>
             </div>
                             

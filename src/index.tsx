@@ -6,6 +6,7 @@ import { Login } from './pages/Login';
 import { Principal } from './pages/Principal';
 import { NovoCadastro } from './pages/Novo-Cadastro';
 import { NovoCaso } from './pages/NovoCaso';
+import { LogServicos } from './pages/LogServicos';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Route path="/home" exact={true} component={Principal} />
       <Route path="/new-user" exact={true} component={NovoCadastro} />
       <Route path="/new-cad" exact={true} component={NovoCaso} />
+      <Route path="/log" exact={true} component={LogServicos} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
