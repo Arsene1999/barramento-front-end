@@ -8,7 +8,7 @@ export function Header() {
       <Container>
           <Content>
             <div>
-                <img src={image} />
+                
                 <h1>Olá,João</h1>
             </div>
             <div>

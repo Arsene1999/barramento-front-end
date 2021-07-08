@@ -11,7 +11,7 @@ export function Login() {
       <Content>
         <form>
           <div>
-            <img src={Logo} alt="" />
+            
             <h1>Faça seu logon</h1>
 
             <Inputs>

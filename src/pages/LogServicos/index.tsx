@@ -73,8 +73,7 @@ export function LogServicos(){
                                    Andre     
                     
                                 </td>
-                                </tr>
-                                
+                                </tr>   
                         </tbody>
                     </table>
        
