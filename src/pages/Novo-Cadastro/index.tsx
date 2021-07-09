@@ -44,7 +44,7 @@ export function NovoCadastro() {
               type="String"
             ></input>
             <input
-              placeholder="WhatsApp"
+              placeholder="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               type="password"
