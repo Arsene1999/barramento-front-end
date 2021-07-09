@@ -1,41 +1,60 @@
-import {Container, Content, Inputs, Botao} from './style';
+import { Container, Content, Inputs, Botao } from "./style";
 
-import { Link } from 'react-router-dom';
-import Logo from '../../assets/Logo (1).png';
-import Voltar from '../../assets/Voltar.svg';
+import { Link } from "react-router-dom";
+import Voltar from "../../assets/Voltar.svg";
+import { useState } from "react";
+import api from "../../services/api";
 
+export function NovoCadastro() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-export function NovoCadastro(){
-    return(
-        <Container>
-            <Content>
-                <form>
-                    <div>
-                        <img src={Logo} alt="" />
-                        <h1>Cadastro</h1>
-                        <p>Faça seu cadastro, entre na plataforma e ajude pessoas a encontrarem os casos da sua ONG.</p>
-                        <Link  to={`/`}>
-                            <Botao> 
-                                <img src={Voltar} alt="" /> 
-                                <h2>Voltar para o logon</h2>
-                            </Botao>
-                        </Link>
-                        
-                    </div>
-                    
-                    <Inputs>
-                        <input placeholder="Nome da ONG"  type="String"></input>
-                        <input placeholder="E-mail"  type="String"></input>
-                        <input placeholder="WhatsApp"  type="String"></input>
-                        <div style={{marginTop:"-0.5rem"}}>
-                            <input placeholder="Cidade" style={{marginRight:"0.5rem"}} type="String"></input>
-                            <input placeholder="UF" style={{width:"15%"}} type="String"></input>
-                        </div>
-                        <button><h3>Cadastrar</h3></button>
-                    </Inputs>
-                    
-                </form>    
-            </Content>
-        </Container>
-    );
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+
+    const response = await api.post("/user", { email, password });
+
+    console.log(response);
+  }
+
+  return (
+    <Container>
+      <Content>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <h1>Cadastro</h1>
+            <p>
+              Cadastre aqui um novo usuário para acessar o sistema de
+              barramento!
+            </p>
+            <Link to={`/`}>
+              <Botao>
+                <img src={Voltar} alt="" />
+                <h2>Voltar para o logon</h2>
+              </Botao>
+            </Link>
+          </div>
+
+          <Inputs>
+            <input placeholder="Nome" type="String"></input>
+            <input
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="String"
+            ></input>
+            <input
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+            ></input>
+            <button type="submit">
+              <h3>Cadastrar</h3>
+            </button>
+          </Inputs>
+        </form>
+      </Content>
+    </Container>
+  );
 }
