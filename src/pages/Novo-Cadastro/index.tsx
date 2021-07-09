@@ -2,12 +2,25 @@ import { Container, Content, Inputs, Botao } from "./style";
 
 import { Link } from "react-router-dom";
 import Voltar from "../../assets/Voltar.svg";
+import { useState } from "react";
+import api from "../../services/api";
 
 export function NovoCadastro() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+
+    const response = await api.post("/user", { email, password });
+
+    console.log(response);
+  }
+
   return (
     <Container>
       <Content>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <h1>Cadastro</h1>
             <p>
@@ -24,9 +37,19 @@ export function NovoCadastro() {
 
           <Inputs>
             <input placeholder="Nome" type="String"></input>
-            <input placeholder="E-mail" type="String"></input>
-            <input placeholder="WhatsApp" type="password"></input>
-            <button>
+            <input
+              placeholder="E-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="String"
+            ></input>
+            <input
+              placeholder="WhatsApp"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+            ></input>
+            <button type="submit">
               <h3>Cadastrar</h3>
             </button>
           </Inputs>
