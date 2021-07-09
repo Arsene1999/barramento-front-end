@@ -1,23 +1,48 @@
 import { Container, Content, Inputs } from "./style";
-import Logo from "../../assets/Logo (2).png";
-import Pessoas from "../../assets/Pessoas.png";
 import Voltar from "../../assets/Voltar.png";
-import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import api from "../../services/api";
 
 export function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+
+    const response = await api.post("/session", {
+      email,
+      password,
+    });
+
+    const { _id } = response.data;
+
+    console.log(response);
+  }
+
   return (
     <Container>
       <Content>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <h1>Acesse o sistema</h1>
 
             <Inputs>
-              <input placeholder="Login" type="String"></input>
-              <input placeholder="Senha" type="password"></input>
+              <input
+                placeholder="Login"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="String"
+              ></input>
+              <input
+                placeholder="Senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+              ></input>
               <Link to={`/home`}>
-                <button>Entrar</button>
+                <button type="submit">Entrar</button>
               </Link>
             </Inputs>
             <Link to={`/new-user`}>
