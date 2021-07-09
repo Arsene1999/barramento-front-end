@@ -1,5 +1,4 @@
 import {Container, Content, Cadastrar, TurnOFF} from './style';
-import image from '../../assets/Logo.png';
 import Sair from '../../assets/Sair.svg';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +7,7 @@ export function Header() {
       <Container>
           <Content>
             <div>
-                <img src={image} />
-                <h1>Olá,João</h1>
+                <h1>Olá, João</h1>
             </div>
             <div>
               <Link to={`/home`}>
