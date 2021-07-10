@@ -10,7 +10,7 @@ export function Header() {
     <Container>
       <Content>
         <div>
-          <h1>Olá</h1>
+          <h1>Olá, {user}</h1>
         </div>
         <div>
           <Link to={`/home`}>
