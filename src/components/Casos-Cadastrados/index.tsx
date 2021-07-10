@@ -1,53 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Content, Cards } from "./style";
 import Apagar from "../../assets/Apagar.svg";
 
+import api from '../../services/api';
+
+interface IProjetos{
+  name: String,
+  description: String,
+  type:String,
+}
+
+
 export function Body() {
-  const servicos = [
-    {
-      name: "CA",
-      type: "Sistema",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-    },
-    {
-      name: "CA",
-      type: "Sistema",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-    },
-    {
-      name: "CA",
-      type: "Sistema",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-    },
-    {
-      name: "CA",
-      type: "Sistema",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-    },
-    {
-      name: "CA",
-      type: "Sistema",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-    },
-    {
-      name: "CA",
-      type: "Sistema",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-    },
-  ];
+  
+  const [projetos, setProjetos] = useState<IProjetos[]>([]);
+  //console.log(token)
+  
+  useEffect(()=>{
+    api.defaults.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+    api.get('/project')
+    .then(response => {
+      const temp = response.data.map((el: IProjetos) => {
+        return el;
+      });
+      setProjetos(temp);
+    }
+  )});
+  
   return (
     <Container>
       <Content>
         <h1>Sistemas cadastrados</h1>
-        {servicos.length > 0 ? (
+        {projetos.length > 0 ? (
           <Cards>
-            {servicos.map((servico) => (
+            {projetos.map((projeto) => (
               <div>
                 <h3>
                   Sistema:
@@ -55,11 +41,12 @@ export function Body() {
                     <img src={Apagar} alt="" />
                   </button>
                 </h3>
-                <p>{servico.name}</p>
+                <p>{projeto.name}</p>
                 <h3>Tipo:</h3>
-                <p>{servico.type}</p>
+                <p>{projeto.type}</p>
                 <h3>Descrição:</h3>
-                <p>{servico.description}</p>
+                <p>{projeto?.description}"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
+   </p>
               </div>
             ))}
           </Cards>

@@ -1,15 +1,18 @@
 import {Container, Content, Cadastrar, TurnOFF} from './style';
 import image from '../../assets/Logo.png';
 import Sair from '../../assets/Sair.svg';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
 export function Header() {
-    return (
+  const user = localStorage.getItem("nome");  
+  const history = useHistory();
+  return (
       <Container>
           <Content>
             <div>
                 
-                <h1>Olá,João</h1>
+                <h1>Olá,{user}</h1>
             </div>
             <div>
               <Link to={`/home`}>
@@ -22,7 +25,11 @@ export function Header() {
                 <Cadastrar >Novo serviço</Cadastrar>
               </Link>
               
-                <TurnOFF><img src={Sair} alt="" /></TurnOFF>
+                <TurnOFF onClick={()=>{
+                  localStorage.removeItem("nome");
+                  localStorage.removeItem("token");
+                  history.push('/');
+                }}><img src={Sair} alt="" /></TurnOFF>
             </div>
                             
           </Content>

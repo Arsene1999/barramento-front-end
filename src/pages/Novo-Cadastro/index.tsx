@@ -1,20 +1,26 @@
 import { Container, Content, Inputs, Botao } from "./style";
+import { Router, Route, Link,useHistory } from 'react-router-dom';
 
-import { Link } from "react-router-dom";
 import Voltar from "../../assets/Voltar.svg";
 import { useState } from "react";
 import api from "../../services/api";
 
 export function NovoCadastro() {
+  const [name,setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
 
   async function handleSubmit(e: any) {
     e.preventDefault();
 
-    const response = await api.post("/user", { email, password });
-
-    console.log(response);
+    try{
+      await api.post("/user", { name,email, password });
+      history.push('/')
+    }catch(e){
+      console.log("ERRO no Cadastro");
+    }
+    
   }
 
   return (
@@ -36,7 +42,11 @@ export function NovoCadastro() {
           </div>
 
           <Inputs>
-            <input placeholder="Nome" type="String"></input>
+            <input 
+              placeholder="Nome" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              type="String"></input>
             <input
               placeholder="E-mail"
               value={email}

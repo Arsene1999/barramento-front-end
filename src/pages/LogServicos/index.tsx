@@ -1,7 +1,36 @@
+import React, { useEffect, useState } from "react";
 import { Header } from '../../components/Header';
 import {Container, Content, Log} from './style';
+import api from '../../services/api';
+import { format } from 'date-fns';
+
+interface ILog{
+    requested: String,
+    message: String,
+    createdAt:string,
+    horaAt: string,
+  }
 
 export function LogServicos(){
+    const [log, setLog] = useState<ILog[]>([]);
+    
+    useEffect(()=>{
+        api.defaults.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+        api.get('/log')
+        .then(response => {
+          const temp = response.data.map((el: ILog) => {
+            var aux = el.createdAt;
+            el.createdAt = format(new Date(el.createdAt), 'dd-MM-yyyy');
+            el.horaAt = format(new Date(aux),'HH:mm:ss' )
+            
+            return el;
+          });
+          
+          setLog(temp);
+        }
+      )},[]);
+
+      console.log(log);
     return(
         <>
            <Header/>
@@ -17,63 +46,22 @@ export function LogServicos(){
                             <tr>
                                 <th>Data</th>
                                 <th>Hora</th>
-                                <th>Emissor</th>
-                                <th>Receptor</th>
+                                <th>Informações</th>
                             </tr>
                         </thead>
                         <tbody>
+                        {log.map((LOG) => (
                             <tr >
-                                <td>18/07/199</td>
+                                <td>{LOG.createdAt}</td>
                                 <td >
-                                    00:00:00    
+                                    {LOG.horaAt}
                                 </td>
+                               
                                 <td>
-                                    João
+                                    {LOG.message}
                                 </td>
-                                <td>
-                                   Andre     
-                    
-                                </td>
-                                </tr>
-                            <tr >
-                                <td>18/07/199</td>
-                                <td >
-                                    00:00:00    
-                                </td>
-                                <td>
-                                    João
-                                </td>
-                                <td>
-                                   Andre     
-                    
-                                </td>
-                                </tr>
-                            <tr >
-                                <td>18/07/199</td>
-                                <td >
-                                    00:00:00    
-                                </td>
-                                <td>
-                                    João
-                                </td>
-                                <td>
-                                   Andre     
-                    
-                                </td>
-                                </tr>
-                            <tr >
-                                <td>18/07/199</td>
-                                <td >
-                                    00:00:00    
-                                </td>
-                                <td>
-                                    João
-                                </td>
-                                <td>
-                                   Andre     
-                    
-                                </td>
-                                </tr>   
+                            </tr>  
+                        ))}
                         </tbody>
                     </table>
        
