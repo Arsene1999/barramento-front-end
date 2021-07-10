@@ -53,3 +53,21 @@ export const Cards = styled.div`
         
     }
 `
+
+
+
+export const Cadastrar = styled.button`
+    background:var(--red);
+    color:var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    transition:filter 0.2s;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+`

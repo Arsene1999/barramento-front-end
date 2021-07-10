@@ -98,6 +98,7 @@ export function NovoCaso() {
             </Inputs>
           </form>
         </Content>
+        
       </Container>
     </>
   );
