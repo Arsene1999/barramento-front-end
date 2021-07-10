@@ -5,6 +5,7 @@ import Apagar from "../../assets/Apagar.svg";
 import api from '../../services/api';
 
 interface IProjetos{
+  id:string;
   name: String,
   description: String,
   type:String,
@@ -34,7 +35,7 @@ export function Body() {
         {projetos.length > 0 ? (
           <Cards>
             {projetos.map((projeto) => (
-              <div>
+              <div key={projeto.id}>
                 <h3>
                   Sistema:
                   <button type="button">
@@ -46,7 +47,7 @@ export function Body() {
                 <p>{projeto.type}</p>
                 <h3>Descrição:</h3>
                 <p>{projeto?.description}"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-   </p>
+                </p>
               </div>
             ))}
           </Cards>

@@ -5,6 +5,7 @@ import api from '../../services/api';
 import { format } from 'date-fns';
 
 interface ILog{
+    id: string;
     requested: String,
     message: String,
     createdAt:string,
@@ -51,7 +52,7 @@ export function LogServicos(){
                         </thead>
                         <tbody>
                         {log.map((LOG) => (
-                            <tr >
+                            <tr key={LOG.id} >
                                 <td>{LOG.createdAt}</td>
                                 <td >
                                     {LOG.horaAt}

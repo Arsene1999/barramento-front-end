@@ -1,16 +1,51 @@
 import { Container, Content, Inputs, Botao } from "./style";
-
 import { Header } from "../../components/Header";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from 'react-router-dom';
 import Voltar from "../../assets/Voltar.svg";
+import { useState } from "react";
+import api from "../../services/api";
 
 export function NovoCaso() {
+  const [nameSistema,setNameSistema] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [type, setType] = useState("");
+  const history = useHistory();
+  
+  async function handleSubmit(e:any){
+    e.preventDefault();
+    api.defaults.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+    
+    try{
+      const res = await api.post('/project', {
+        "name": nameSistema,
+        "type": type,
+        "searchConfig": [ 
+          { 
+            "name": "aaaa",			
+            "query": "SELECT * FROM blabla.ble",
+            "host": "localhost",
+            "port": 3306,
+            "user": "root",
+            "password": "1234",
+            "description": "seila"
+          },
+        ]
+     });
+
+     history.push('/home')
+    }catch(e){
+      console.log(e);
+    }
+
+  };
+
+
   return (
     <>
       <Header />
       <Container>
         <Content>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div>
               <h1>Cadastrar novo serviço</h1>
               <p>
@@ -27,13 +62,25 @@ export function NovoCaso() {
             </div>
 
             <Inputs>
-              <input placeholder="Nome do Sistema" type="String"></input>
+              <input 
+                placeholder="Nome do Sistema" 
+                type="String"
+                value={nameSistema}
+                onChange={(e) => setNameSistema(e.target.value)}
+              ></input>
               <input
                 placeholder="Descrição"
                 type="String"
                 style={{ paddingBottom: "6rem" }}
+                value={descricao}
+                onChange={(e) => setDescricao(e.target.value)}
               ></input>
-              <input placeholder="Acesso" type="String"></input>
+              <input 
+                placeholder="Tipo" 
+                type="String"
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+              ></input>
               <div>
                 <button
                   style={{
