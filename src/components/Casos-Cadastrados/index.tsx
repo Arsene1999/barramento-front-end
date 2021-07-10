@@ -102,7 +102,9 @@ export function Body() {
                 <p>{projeto.type}</p>
                 <h3>Descrição:</h3>
                 <p>{projeto?.description}</p>
-                <button onClick={() => {fOpen(projeto._id)}}>Saiba mais...</button>
+                <button onClick={() => {fOpen(projeto._id)}}>
+                  <h3 style={{color:"#7171ff"}}>Saiba mais...</h3>
+                </button>
               </div>
             ))}
           </Cards>
