@@ -26,6 +26,14 @@ export function NovoCaso() {
   const [nameSistema, setNameSistema] = useState("");
   const [descricao, setDescricao] = useState("");
   const [type, setType] = useState("");
+
+  const [nameQuery, setNameQuery] = useState("");
+  const [query, setQuery] = useState("");
+  const [host, setHost] = useState("");
+  const [port, setPort] = useState("");
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+
   const history = useHistory();
 
   async function handleSubmit(e: any) {
@@ -38,15 +46,15 @@ export function NovoCaso() {
       const res = await api.post("/project", {
         name: nameSistema,
         type: type,
+        description: descricao,
         searchConfig: [
           {
-            name: "aaaa",
-            query: "SELECT * FROM blabla.ble",
-            host: "localhost",
-            port: 3306,
-            user: "root",
-            password: "1234",
-            description: "seila",
+            name: nameQuery,
+            query: query,
+            host: host,
+            port: port,
+            user: user,
+            password: password,
           },
         ],
       });
@@ -100,7 +108,46 @@ export function NovoCaso() {
                 onChange={(e) => setType(e.target.value)}
               ></input>
               <h3>Configurações do sistema</h3>
-              <FormConfiguracao />
+              <div>
+                <input
+                  placeholder="Nome da query"
+                  value={nameQuery}
+                  onChange={(e) => setNameQuery(e.target.value)}
+                  type="String"
+                ></input>
+                <input
+                  placeholder="Host"
+                  value={host}
+                  onChange={(e) => setHost(e.target.value)}
+                  type="String"
+                ></input>
+              </div>
+              <input
+                placeholder="Query"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                type="String"
+              ></input>
+              <div>
+                <input
+                  placeholder="Porta"
+                  value={port}
+                  onChange={(e) => setPort(e.target.value)}
+                  type="String"
+                ></input>
+                <input
+                  placeholder="Usuário"
+                  value={user}
+                  onChange={(e) => setUser(e.target.value)}
+                  type="String"
+                ></input>
+                <input
+                  placeholder="Senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                ></input>
+              </div>
               <div>
                 <button
                   style={{
@@ -118,7 +165,6 @@ export function NovoCaso() {
             </Inputs>
           </form>
         </Content>
-        
       </Container>
     </>
   );
