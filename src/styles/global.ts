@@ -48,6 +48,15 @@ export const GlobalStyle = createGlobalStyle`
         border-radius: 0.25rem;
     }
 
+    .react-modal-content-serv{
+        width:100%;
+        max-width:700px;
+        background: var(--background);
+        padding: 3rem;
+        position:relative;
+        border-radius: 0.25rem;
+    }
+
     .react-modal-close{
         position:absolute;
         right: 1.5rem;
@@ -60,4 +69,5 @@ export const GlobalStyle = createGlobalStyle`
         &:hover{
             filter:brightness(0.8);
         }
+
 `

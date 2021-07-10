@@ -71,3 +71,16 @@ export const Cadastrar = styled.button`
         filter: brightness(0.9);
     }
 `
+
+export const FazOque = styled.div`
+    display:block;
+    width: 100%;
+    div{
+        display:flex;
+        align-items: center;
+    }
+    p{ 
+            color: var(--textosSec);
+            padding: 0.5rem 0 0.5rem;
+        }
+`
