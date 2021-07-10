@@ -46,7 +46,7 @@ export function Body() {
       //console.log(response.data)
       setProjetos(temp);
     }
-  )},[change]);
+  )});
   
   return (
     <Container>
@@ -56,20 +56,20 @@ export function Body() {
         {projetos.length > 0 ? (
           <Cards>
             {projetos.map((projeto) => (
-              <div key={projeto._id}>
+              <div key={projeto._id} style={{minWidth:"100%"}}>
                 
                 <h3>
                   Sistema:
                   <button type="button" onClick={() => {openModal(projeto._id)}}>
                     <img src={Apagar} alt="" />
                   </button>
+                  
                 </h3>
                 <p>{projeto.name}</p>
                 <h3>Tipo:</h3>
                 <p>{projeto.type}</p>
                 <h3>Descrição:</h3>
-                <p>{projeto?.description}"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas condimentum, dolor dapibus posuere venenatis, ante urna sagittis quam, a varius eros mauris a metus.",
-                </p>
+                <p>{projeto?.description}</p>
               </div>
             ))}
           </Cards>
