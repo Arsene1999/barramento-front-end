@@ -5,23 +5,6 @@ import Voltar from "../../assets/Voltar.svg";
 import { useState } from "react";
 import api from "../../services/api";
 
-export function FormConfiguracao() {
-  return (
-    <>
-      <div>
-        <input placeholder="Nome da query" type="String"></input>
-        <input placeholder="Host" type="String"></input>
-      </div>
-      <input placeholder="Query" type="String"></input>
-      <div>
-        <input placeholder="Porta" type="String"></input>
-        <input placeholder="Usuário" type="String"></input>
-        <input placeholder="Senha" type="String"></input>
-      </div>
-    </>
-  );
-}
-
 export function NovoCaso() {
   const [nameSistema, setNameSistema] = useState("");
   const [descricao, setDescricao] = useState("");
@@ -158,7 +141,7 @@ export function NovoCaso() {
                 >
                   <h3>Cancelar</h3>
                 </button>
-                <button>
+                <button type="submit">
                   <h3>Cadastrar</h3>
                 </button>
               </div>
